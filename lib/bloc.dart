@@ -55,10 +55,13 @@ class NewsBloc extends Bloc {
   }
 
   void filterSearch({String value = ''}) async {
-    if (value == '' && _tempPlacementNews.length > 0) {
-      news = _tempPlacementNews;
-      _tempPlacementNews = List<Items>();
-
+    if (value == '') {
+      if (_tempPlacementNews.length > 0)
+        news = _tempPlacementNews;
+      else if (_tempPlacementNews.length == 0) {
+        _tempPlacementNews = List<Items>();
+        _tempPlacementNews.addAll(_news.value);
+      }
       return;
     }
 
