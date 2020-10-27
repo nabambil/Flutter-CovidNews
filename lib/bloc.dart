@@ -60,8 +60,6 @@ class NewsBloc extends Bloc {
       _tempPlacementNews = List<Items>();
 
       return;
-    } else {
-      _tempPlacementNews.addAll(_news.value);
     }
 
     final List<Items> filteredNews = List<Items>();
